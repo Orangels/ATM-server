@@ -6,6 +6,8 @@ import traceback
 import cv2
 import requests
 from urllib.parse import quote
+import gearman
+gm_worker = gearman.GearmanWorker(['127.0.0.1:4730'])
 
 
 def generate_path():
@@ -36,6 +38,21 @@ def upload_path(path):
     print(r.text)
 
 
+def task_listener_reverse(gearman_worker, gearman_job):
+    print(json.loads(s=gearman_job.data))
+    url = 'http://127.0.0.1:5000/waring_img'
+    headers = {'Content-Type': 'application/json'}
+    post_json = gearman_job.data
+    data = quote(post_json)
+    r = requests.post(url, headers=headers, data=data)
+    print(r.text)
+    return "1"
+
+
 if __name__ == '__main__':
     fileName = generate_path()
     upload_path(fileName)
+    # gm_worker.set_client_id('det_car')
+    # gm_worker.register_task('det_car', task_listener_reverse)
+    # print('start worker')
+    # gm_worker.work()

@@ -32,6 +32,15 @@ CORS(app, resources=r'/*')
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
+@app.route('/')
+@app.route('/mode_1')
+@app.route('/mode_2')
+@app.route('/login')
+def index():
+    # return 111
+    return render_template("index.html")
+
+
 @app.route('/waring_img', methods=['POST'])
 def post_new_waring_img():
     try:
@@ -40,11 +49,16 @@ def post_new_waring_img():
         return_arr = []
         print(client_params)
         print('111111')
-        for item in client_params:
+        for i, item in enumerate(client_params):
             file_name = item['path']
             mode = item['mode']
             filePath_ori = BASE_DIR + '/' + app.config['UPLOAD_FOLDER']
             path, date_path = get_state_filepath(filePath_ori, file_name)
+            if i == 0:
+                dir_name = os.path.dirname(path) + '/'
+                commond_remove = 'rm -rf {}*.jpg'.format(dir_name)
+                print(commond_remove)
+                popen(commond_remove)
             commond = 'mv {} {}'.format(filePath_ori+file_name, path)
             print(commond)
             popen(commond)
