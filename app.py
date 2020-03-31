@@ -81,6 +81,20 @@ def post_new_waring_img():
         return jsonify(dic)
 
 
+@app.route('/device_info', methods=['POST'])
+def device_info():
+    try:
+        dic = dict(code=200, result=get_device_basic_info())
+        return jsonify(dic)
+    except Exception as e:
+        print('***********')
+        print(e)
+        traceback.print_exc()
+        print('***********')
+        dic = dict(code=400, result='error')
+        return jsonify(dic)
+
+
 @socketio.on('test_message', namespace='/Camera_Web_ws')
 def test_message(message):
     print(message)

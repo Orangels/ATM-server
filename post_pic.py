@@ -50,9 +50,9 @@ def task_listener_reverse(gearman_worker, gearman_job):
 
 
 if __name__ == '__main__':
-    fileName = generate_path()
-    upload_path(fileName)
-    # gm_worker.set_client_id('det_car')
-    # gm_worker.register_task('det_car', task_listener_reverse)
-    # print('start worker')
-    # gm_worker.work()
+    #fileName = generate_path()
+    #upload_path(fileName)
+    gm_worker.set_client_id('det_car')
+    gm_worker.register_task('det_car', task_listener_reverse)
+    print('start worker')
+    gm_worker.work()
