@@ -65,7 +65,8 @@ def post_new_waring_img():
             url_path = '/' + app.config['UPLOAD_FOLDER'] + date_path + file_name
             print(url_path)
             return_arr.append(dict(path=url_path, mode=mode))
-
+            
+        time.sleep(3)
         socketio.emit('new_state', {
             'result': return_arr
         },
