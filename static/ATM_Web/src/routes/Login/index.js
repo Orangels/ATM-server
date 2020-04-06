@@ -10,13 +10,10 @@ import 'animate.css'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 
-const url = 'https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/bg1.jpg?raw=true'
-const imgs = [
-  'https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/slide1.jpg?raw=true',
-  'https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/slide2.jpg?raw=true',
-  'https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/slide3.jpg?raw=true',
-  'https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/slide4.jpg?raw=true'
-]
+import login_bg  from '../../assets/bg/login_bg.jpg'
+
+const url = login_bg
+
 
 
 
@@ -38,7 +35,7 @@ class Login extends React.Component {
       // this.props.appStore.toggleLogin(false) //也可以设置退出登录
     }
     this.initPage()
-    preloadingImages(imgs)  //预加载下一个页面的图片，预加载了第二次为什么还会去请求图片资源？
+    // preloadingImages(imgs)  //预加载下一个页面的图片，预加载了第二次为什么还会去请求图片资源？
   }
 
   componentWillUnmount () {
@@ -117,13 +114,20 @@ class Login extends React.Component {
 
 const styles = {
   backgroundBox: {
+    // position: 'fixed',
+    // top: '0',
+    // left: '0',
+    // width: '100vw',
+    // height: '100vh',
+    // background:`url(${login_bg}) no-repeat `,
+    // backgroundSize: '100% 100%',
+    // transition:'all .5s'
     position: 'fixed',
     top: '0',
     left: '0',
     width: '100vw',
     height: '100vh',
-    // backgroundImage: 'url(https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/bg5.jpg?raw=true)',
-    backgroundImage: 'url(https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/bg1.jpg?raw=true)',
+    background:`url(${login_bg}) no-repeat `,
     backgroundSize: '100% 100%',
     transition:'all .5s'
   },

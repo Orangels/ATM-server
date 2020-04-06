@@ -17,17 +17,17 @@ const menus = [
     //   {key: '/home/general/icon', title: '图标', icon: '',},
     // ]
   },
-  {
-    title: '历史告警',
-    icon: 'bars',
-    // key: '/home/navigation',
-    key: '/mode_2',
-    // subs: [
-    //   {key: '/home/navigation/dropdown', title: '下拉菜单', icon: ''},
-    //   {key: '/home/navigation/menu', title: '导航菜单', icon: ''},
-    //   {key: '/home/navigation/steps', title: '步骤条', icon: ''},
-    // ]
-  },
+  // {
+  //   title: '历史告警',
+  //   icon: 'bars',
+  //   // key: '/home/navigation',
+  //   key: '/mode_2',
+  //   // subs: [
+  //   //   {key: '/home/navigation/dropdown', title: '下拉菜单', icon: ''},
+  //   //   {key: '/home/navigation/menu', title: '导航菜单', icon: ''},
+  //   //   {key: '/home/navigation/steps', title: '步骤条', icon: ''},
+  //   // ]
+  // },
   // {
   //   title: '数据管理',
   //   icon: 'edit',
@@ -110,7 +110,7 @@ class SiderNav extends React.Component {
 const styles = {
   logo: {
     height: '32px',
-    background: 'rgba(255, 255, 255, .2)',
+    // background: 'rgba(255, 255, 255, .2)',
     margin: '16px'
   }
 }
