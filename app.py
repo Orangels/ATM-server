@@ -58,7 +58,7 @@ def post_new_waring_img():
                 dir_name = os.path.dirname(path) + '/'
                 commond_remove = 'rm -rf {}*.jpg'.format(dir_name)
                 print(commond_remove)
-                popen(commond_remove)
+                # popen(commond_remove)
             commond = 'mv {} {}'.format(filePath_ori+file_name, path)
             print(commond)
             popen(commond)
